@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>EEC 172 - Tetris</title>
+    <!-- Bootstrap, FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- ~~~~~~~~~~~~~~ Main Page Content ~~~~~~~~~~~~~~ -->
+    <div class="container mb-5">
+        <div class="row">
+            <!-- title -->
+            <div class="col-12 text-center mt-5">
+                <h1>Tetris</h1>
+            </div>
+            <!-- content -->
+            <div class="col-12 text-left">
+                <h2 class="mt-5 mb-3">Overview</h2>
+                <p>
+                    We decided to implement the popular game Tetris for our lab 5 project. We utilized an Adafruit SSD1351 OLED screen 
+                    to display the game as well as a TV remote as the controller system. Upon powering up the board, the player is greeted 
+                    with a welcome screen from which they must press a button to initiate the game (could be any of the registered buttons 
+                    on the remote). Upon doing so, the game board is generated and pieces start falling one at a time from the top of the 
+                    screen in the game board. The player must then play the game and try to maximize their score.
+                </p>
+                <h2 class="mt-5 mb-3">Game Rules</h2>
+                <p>
+                    The player must utilize the four arrow buttons on the remote to interact with a falling piece:
+                </p>
+                <br>
+                <ul class="ml-4">
+                    <li>Left:	move the falling piece one spot to the left</li>
+                    <li>Right:	move the falling piece one spot to the right</li>
+                    <li>Up:	rotate the falling piece clockwise by 90 degrees</li>
+                    <li>Down: 	fast-place the falling piece where it would fall</li>
+                </ul>
+                <br>
+                <p>
+                    As falling pieces begin filling the board, one crucial rule is at play. When a row within the board is filled, it is 
+                    cleared and all the pieces above it fall down into the cleared space. The objective of the game is to keep the board as clear 
+                    as possible for as long as possible. The player’s score increases by 2 when a piece is placed and increases by 10 every time 
+                    one row is filled up. The game is lost when a piece can not be placed on the board. This happens when the board is fully 
+                    filled or simply if the player doesn’t move pieces quick enough. After a game is lost, the player’s score is saved and 
+                    persistently stored using Amazon Web Services. A few seconds later, the top five highest scores ever achieved are displayed 
+                    on the OLED screen next to the game board (see figure 1). If a player gets a score among the top five highest ones, it is 
+                    highlighted red, and the player can feel proud of their accomplishment. The player can then choose to start a new game or 
+                    disconnect the device.
+                </p>
+                <br>
+                <h3>Pausing</h3>
+                <br>
+                <p>
+                    The player can pause the game by pressing LAST on their remote. This clears the board so that the player can't cheat. If the 
+                    player is ready to resume, they can press LAST again and the board will restore to its original state.
+                </p>
+                <br>
+                <h3>Reset</h3>
+                <br>
+                <p>
+                    The player can choose to press 0 on the remote to reset the whole game. This creates a new game for the player starting with 
+                    a score of zero.
+                </p>
+                <br>
+                <h3>Cheats</h3>
+                <br>
+                <p>
+                    The player can press 1 on the remote three times to enable "cheat mode", which lets them see the board when they pause the game.
+                </p>
+            </div>
+
+                
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
