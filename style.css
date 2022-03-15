@@ -37,3 +37,10 @@ h1, h3, p, li {
 body {
     background-color: #FAEBD7;
 }
+
+/* Make Youtube video fill width of webpage if width is too small */
+@media (max-width: 560px){
+    iframe {
+        width: 100%;
+    }
+}
