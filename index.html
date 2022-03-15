@@ -26,61 +26,109 @@
             	<iframe width="560" height="315" src="https://www.youtube.com/embed/gQZlRFESmvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="col-12 text-left">
-                <h2 class="mt-5 mb-3">Overview</h2>
+                <h2 class="mt-3 mb-3">Overview</h2>
                 <p>
-                    Our final project is Tetris implemented on the CC3200. We used an Adafruit SSD1351 OLED screen
-                    to display the game as well as a TV remote as a controller. When powering up the board, the player is greeted
-                    with a welcome screen from which they must press a control to initiate the game (could be any of the registered buttons 
-                    on the remote). Then the game board is generated and pieces start falling one at a time from the top left corner 
-                    of the game board. The player must then play the game and try to get the highest score.
+                    Our final project for this class is the game <b>Tetris</b> programmed on the <i>TI CC3200 Launchpad</i>.
                 </p>
-                <h2 class="mt-5 mb-3">Game Rules</h2>
+                <h2 class="mt-3 mb-3">
+                    Startup
+                </h2>
                 <p>
-                    The player uses the four arrow buttons on the remote to interact with the falling piece:
+                    After turning on the board and connecting it to the internet, you are greeted with a welcome screen.
+                    From here, you can press any control to start the game, and the welcome screen will disappear to make
+                    room for the game.
+                </p>
+                <h2 class="mt-3 mb-3">
+                    Game Mechanics
+                </h2>
+                <p>
+                    The way this works is you control one piece starting from the upper left corner of the board, and it
+                    continually falls down until it hits the bottom of the board or another piece. If the game is unable
+                    to spawn another piece on the board, the player loses.
+                </p>
+                <br>
+                <p>
+                    Players can clear the board by placing the pieces such that they form a filled up row. These rows will
+                    disappear and cause the rows above to fall down and fill the empty space.
+                </p>
+                <h2 class="mt-3 mb-3">
+                    Score
+                </h2>
+                <p>
+                    The player starts with a score of 0 at the beginning of every game. The score increases when the following
+                    events occur:
                 </p>
                 <br>
                 <ul class="ml-4">
-                    <li>Left:	move the falling piece one spot to the left</li>
-                    <li>Right:	move the falling piece one spot to the right</li>
-                    <li>Up:	rotate the falling piece clockwise by 90 degrees</li>
-                    <li>Down: 	fast-place the falling piece where it would fall</li>
+                    <li>
+                        +2: A piece is placed
+                    </li>
+                    <li>
+                        +10: One row is filled
+                    </li>
                 </ul>
+                <h2 class="mt-3 mb-3">
+                    Goal
+                </h2>
+                <p>
+                    The goal of this game is to get the highest score on the leaderboard.
+                </p>
+                <h2 class="mt-3 mb-3">
+                    High Scores
+                </h2>
+                <p>
+                    When you lose the game, you can see the latest high scores downloaded from Amazon Web Services.
+                    If your score is a high score, it will be colored <span style="color:red">red</span>.
+                </p>
+                <h2 class="mt-3 mb-3">
+                    Basic Movement
+                </h2>
+                <p>
+                    You use these buttons on the remote to manipulate the falling piece:
+                </p>
                 <br>
+                <ul class="ml-4">
+                    <li><b>Left</b>:	move the falling piece one spot to the left</li>
+                    <li><b>Right</b>:	move the falling piece one spot to the right</li>
+                    <li><b>Up</b>:	    rotate the falling piece clockwise by 90 degrees</li>
+                    <li><b>Down</b>: 	fast-place the falling piece where it would fall</li>
+                </ul>
+                <h2 class="mt-3 mb-3">
+                    Pausing
+                </h2>
+                <ul class="ml-4">
+                    <li>
+                        <b>Last</b>:    pause the game
+                    </li>
+                </ul>
                 <p>
-                    As falling pieces begin filling the board, one crucial rule is at play. When a row within the board is filled, it is 
-                    cleared and all the pieces above it fall down. The objective of the game is to keep the board clear for as long as possible.
-                    </p>
-                    <br>
-                    <p>
-                    The player’s score increases by 2 when a piece is placed and increases by 10 every time 
-                    one row is filled up.
-                    </p>
-                    <br>
-                    <p>The game is lost when a piece can not be placed on the board due to the board becoming filled. 
-                    After a game is lost, the player’s score is saved and 
-                    persistently stored using Amazon Web Services. A few seconds later, the top five highest scores ever achieved are displayed 
-                    on the OLED screen next to the game board. If a player gets a score among the top five highest ones, it is 
-                    highlighted red. The player can then choose to start a new game or 
-                    disconnect the device.
+                    The player can pause the game, which will clear the board so they can't cheat. To resume the game,
+                    they can press <b>LAST</b> again and the board will restore to its original state.
                 </p>
-                <h2 class="mt-5 mb-3">Pausing</h2>
+                <h2 class="mt-3 mb-3">
+                    Reset
+                </h2>
+                <ul class="ml-4">
+                    <li>
+                        <b>0</b>:    start a new game
+                    </li>
+                </ul>
                 <p>
-                    The player can pause the game by pressing LAST on their remote. This clears the board so that the player can't cheat. If the 
-                    player is ready to resume, they can press LAST again and the board will restore to its original state.
+                    When the player starts a new game, the current game is erased.
                 </p>
-                <h2 class="mt-5 mb-3">Reset</h2>
+                <h2 class="mt-3 mb-3">
+                    Cheats
+                </h2>
+                <ul class="ml-4">
+                    <li>
+                        <b>1</b>:   cheat mode
+                    </li>
+                </ul>
                 <p>
-                    The player can choose to press 0 on the remote to reset the whole game. This creates a new game for the player starting with 
-                    a score of zero.
-                </p>
-                <h2 class="mt-5 mb-3">Cheats</h2>
-                <p>
-                    The player can press 1 on the remote three times to enable "cheat mode", which lets them see the board when they pause the game.
+                    The player can press 1 on the remote three times to enable "cheat mode", which allows them to 
+                    see the board when they pause the game.
                 </p>
             </div>
-
-                
-
         </div>
     </div>
 

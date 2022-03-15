@@ -25,3 +25,22 @@ p {
     font-size: 18px;
     margin: 0 2px;
 }
+
+h2 {
+    color: darkgoldenrod;
+}
+
+h1, h3, p, li {
+    color: #663300;
+}
+
+body {
+    background-color: #FAEBD7;
+}
+
+/* Make Youtube video fill width of webpage if width is too small */
+@media (max-width: 560px){
+    iframe {
+        width: 100%;
+    }
+}
